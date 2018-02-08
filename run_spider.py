@@ -38,6 +38,8 @@ class Application(Frame):
         if text:
             self.input_text = text
         self.quit()
+        self.master.quit()
+        self.master.destroy()
 
     def center_window(self, root, width, height):
         screenwidth = self.winfo_screenwidth()
@@ -55,4 +57,5 @@ app.mainloop()
 print(app.input_text)
 logging.info('<BDS> keyword: %s' % app.input_text)
 BaiduSpider.key_word = app.input_text
+
 execute(['scrapy', 'crawl', 'baidu_search'])
